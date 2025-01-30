@@ -6,48 +6,46 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:00:51 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/30 18:36:40 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/30 21:15:39 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static char	*valid_input(char *str)
+static long parse_long(char *str)
 {
-	int		len = 0;
-	char	*number;
+	long	result;
+	int		sign;
 
-	while (is_space(str))
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= '0' && *str <= '9'))
 		str++;
-	if (*str == '+')
-		str++;
-	else if (*str == '-')
-		return (error_return("Only positive integers!"));
-	if (!is_digit(str))
-		return (error_return("Invalid input!"));
-	number = str;
-	while (is_digit(str))
+	if (*str == '-' || *str == '+')
 	{
-		len++;
+		if (*str == '-')
+			sign = -1;
 		str++;
 	}
-	if (len > 10)
-		return (error_return("Int MAX is the limit!"));
-	return (number);
+	while (*str >= '0' && *str <= '9')
+		result = result * 10 + (*str++ - '0');
+	result *= sign;
+	if (result < 0 || result > INT_MAX)
+		return_error("Please enter valid input.");
+	return (result);
 }
 
-static long	ft_atol(char *str)
+void	parse_input(t_data *data, char *argv[])
 {
-	long	num = 0;
-	char	*valid;
-
-	valid = valid_input(str);
-	if (!valid)
-		return (-1);
-	while (*valid && is_digit(valid))
-	{
-		num = (num * 10) + (*valid - '0');
-		valid++;
-	}
-	return (num);
+	data->philo_count = parse_long(argv[1]);
+	data->time_to_die = parse_long(argv[2]) * 1e3;
+	data->time_to_eat = parse_long(argv[3]) * 1e3;
+	data->time_to_sleep = parse_long(argv[4]) * 1e3;
+	if (data->time_to_die < 6e4 || data->time_to_eat < 6e4
+		|| data->time_to_sleep < 6e4)
+		return_error("Use timestamps major than 60ms");
+	if (argv[5])
+		data->max_meal = parse_long(argv[5]);
+	else
+		data->max_meal = -1;
 }
