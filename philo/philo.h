@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/30 18:23:58 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:30:30 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ typedef struct s_philo
 
 inline bool	is_space(char *str);
 inline bool	is_digit(char *str);
+void	*error_return(char *msg);
 
 #endif
