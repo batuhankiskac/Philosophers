@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/30 18:08:00 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:23:58 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_philo
 	struct s_data	*data;
 }					t_philo;
 
-long	ft_atol(char *s);
+inline bool	is_space(char *str);
+inline bool	is_digit(char *str);
 
 #endif

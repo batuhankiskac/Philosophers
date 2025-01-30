@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:49:36 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/30 18:03:25 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:09:11 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char  *argv[])
 
 	if (argc == 5 || argc == 6)
 	{
-		parse_input(&philo);
+		parse_input(&philo.data);
 		data_init(&philo);
 		dinner_start(&philo, argv);
 		cleanup_data(&philo);
