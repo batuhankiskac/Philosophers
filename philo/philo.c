@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:49:36 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/01 12:58:26 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/01 13:23:26 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char  *argv[])
 			return (ERROR);
 		if (dinner_start(&data, argv) == ERROR)
 			return (ERROR);
-		if (cleanup_data(&data) == ERROR)
+		if (clean_up(&data) == ERROR)
 			return (ERROR);
 		return (0);
 	}

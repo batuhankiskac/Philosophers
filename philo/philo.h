@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/01 12:44:14 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/01 13:20:42 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ typedef struct s_philo
 	struct s_data	*data;
 }					t_philo;
 
+int	parse_input(t_data *data, char *argv[]);
 #endif
