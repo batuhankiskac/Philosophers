@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/30 21:12:21 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/01 12:44:14 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,18 @@
 # include <sys/time.h>
 # include <limits.h>
 
-# define ERR_ARGS "Wrong Argument! Usage: ./philo <number> <die_time> <eat_time> <sleep_time> [max_meals]"
-# define ERR_MUTEX "Mutex could not initialized"
-# define ERR_THREAD "Thread could not create"
 # define ERROR -1
+
+typedef enum e_opcode
+{
+	LOCK,
+	UNLOCK,
+	INIT,
+	DESTROY,
+	CREATE,
+	JOIN,
+	DETACH,
+}			t_opcode;
 
 typedef struct s_data
 {
@@ -54,8 +62,5 @@ typedef struct s_philo
 	pthread_mutex_t	*right_fork;
 	struct s_data	*data;
 }					t_philo;
-
-void	*return_error(char *msg);
-void	parse_input(t_data *data, char *argv[]);
 
 #endif
