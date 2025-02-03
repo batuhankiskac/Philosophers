@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/01 13:20:42 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/03 16:20:33 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ typedef struct s_philo
 }					t_philo;
 
 int	parse_input(t_data *data, char *argv[]);
+int	mutex_handle(pthread_mutex_t *mutex, t_opcode opcode);
 #endif
