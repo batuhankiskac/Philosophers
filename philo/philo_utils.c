@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 21:23:11 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/11 22:00:10 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/11 22:07:23 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,7 @@ void	clean_up(t_data *data)
 			pthread_mutex_destroy(&data->philos[i].meal_lock);
 		free(data->philos);
 	}
+	pthread_mutex_destroy(&data->print_lock);
+	pthread_mutex_destroy(&data->meal_lock);
+	
 }
