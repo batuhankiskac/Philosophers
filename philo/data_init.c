@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:58:42 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/11 14:21:33 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/11 17:16:01 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ static int	init_philosophers(t_data *data)
 		data->philos[i].right_fork = &data->forks[(i + 1) % data->philo_count];
 		data->philos[i].data = data;
 		data->philos[i].is_full = false;
+		data->philos[i].is_dead = false;
 	}
 	return (0);
 }
@@ -88,6 +89,6 @@ int	data_init(t_data *data)
 		return (ERROR);
 	}
 	data->start_time = get_time();
-	data->is_dead = false;
+	data->end_sim = false;
 	return (0);
 }
