@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/11 20:43:16 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/11 22:01:53 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_philo
 	int				id;
 	long			last_meal;
 	int				meals_eaten;
-	int				left_ford_id;
+	int				left_fork_id;
 	int				right_fork_id;
 	pthread_t		thread;
 	struct s_data	*data;
@@ -49,5 +49,7 @@ typedef struct s_data
 	struct timeval	start_time;
 	struct s_philo	*philos;
 }				t_data;
+
+int	parse_input(int argc, char *argv[], t_data *data);
 
 #endif
