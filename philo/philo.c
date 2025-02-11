@@ -6,15 +6,15 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:49:36 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/03 16:24:10 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/11 14:22:02 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	t_data *data;
+	t_data	*data;
 
 	if (argc == 5 || argc == 6)
 	{
@@ -30,4 +30,3 @@ int main(int argc, char *argv[])
 	}
 	return (ERROR);
 }
-

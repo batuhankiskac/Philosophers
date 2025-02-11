@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/03 16:20:33 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/11 14:21:20 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,9 @@ typedef struct s_data
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	meal_lock;
 	pthread_mutex_t	print_lock;
-	bool			end_sim;
+	bool			is_dead;
 	struct s_philo	*philos;
 }					t_data;
-
 
 typedef struct s_philo
 {
@@ -65,4 +64,6 @@ typedef struct s_philo
 
 int	parse_input(t_data *data, char *argv[]);
 int	mutex_handle(pthread_mutex_t *mutex, t_opcode opcode);
+int	data_init(t_data *data);
+
 #endif
