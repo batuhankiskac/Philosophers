@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:49:36 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/14 17:34:33 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/14 20:27:01 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 	prog = malloc(sizeof(t_program));
 	if (!prog)
 		return (ERROR);
-	if (parse_input(argc, argv, prog) == ERROR)
+	if (parse_input(argc, argv, prog->philos) == ERROR)
 	{
 		free(prog);
 		return (ERROR);

@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/14 17:43:45 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/14 21:42:38 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,7 @@ typedef struct s_philo
 	int				eating;
 	int				meals_eaten;
 	size_t			last_meal;
-	size_t			time_to_die;
-	size_t			time_to_eat;
-	size_t			time_to_sleep;
 	size_t			start_time;
-	int				num_of_philos;
-	int				max_meals;
 	int				*dead;
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
@@ -47,6 +42,11 @@ typedef struct s_philo
 
 typedef struct s_program
 {
+	size_t			time_to_die;
+	size_t			time_to_eat;
+	size_t			time_to_sleep;
+	int				philo_num;
+	int				max_meals;
 	int				dead_flag;
 	pthread_mutex_t	dead_lock;
 	pthread_mutex_t	meal_lock;
@@ -54,6 +54,9 @@ typedef struct s_program
 	t_philo			*philos;
 }					t_program;
 
-int	parse_input(int argc, char *argv[], t_program *prog);
+int		parse_input(int argc, char *argv[], t_program *prog);
+int		data_init(t_program *prog);
+int		ft_usleep(size_t milliseconds);
+size_t	get_current_time(void);
 
 #endif

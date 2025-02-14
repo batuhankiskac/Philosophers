@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 19:27:42 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/14 19:44:15 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/14 21:40:44 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,21 @@ static long	check_range(const char *str)
 
 int	parse_input(int argc, char *argv[], t_program *prog)
 {
-	prog->philos->num_of_philos = (int)check_range(argv[1]);
-	prog->philos->time_to_die = (size_t)check_range(argv[2]) * 1000;
-	prog->philos->time_to_eat = (size_t)check_range(argv[3]) * 1000;
-	prog->philos->time_to_sleep = (size_t)check_range(argv[4]) * 1000;
-	if (prog->philos->num_of_philos == ERROR
-		|| prog->philos->time_to_die == ERROR
-		|| prog->philos->time_to_eat == ERROR
-		|| prog->philos->time_to_sleep == ERROR)
-		return (ERROR);
-	if (prog->philos->time_to_die < 60000 || prog->philos->time_to_eat < 60000
-		|| prog->philos->time_to_sleep < 60000 || prog->philos->num_of_philos > 200
-		|| prog->philos->num_of_philos < 1)
+	prog->philo_num = (int)check_range(argv[1]);
+	prog->time_to_die = (size_t)check_range(argv[2]);
+	prog->time_to_eat = (size_t)check_range(argv[3]);
+	prog->time_to_sleep = (size_t)check_range(argv[4]);
+	if (prog->philo_num > 200 || prog->philo_num < 1
+		|| prog->time_to_die < 60 || prog->time_to_eat < 60
+		|| prog->time_to_sleep < 60)
 		return (ERROR);
 	if (argc == 6)
 	{
-		prog->philos->max_meals = (int)check_range(argv[5]);
-		if (prog->philos->max_meals == ERROR)
+		prog->max_meals = (int)check_range(argv[5]);
+		if (prog->max_meals == ERROR)
 			return (ERROR);
 	}
 	else
-		prog->philos->max_meals = -1;
+		prog->max_meals = -1;
 	return (0);
 }
-
