@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/11 22:01:53 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/14 17:18:05 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,32 @@
 
 typedef struct s_philo
 {
-	int				id;
-	long			last_meal;
-	int				meals_eaten;
-	int				left_fork_id;
-	int				right_fork_id;
 	pthread_t		thread;
-	struct s_data	*data;
-}				t_philo;
+	int				id;
+	int				eating;
+	int				meals_eaten;
+	size_t			last_meal;
+	size_t			time_to_die;
+	size_t			time_to_eat;
+	size_t			time_to_sleep;
+	size_t			start_time;
+	int				num_of_philos;
+	int				num_times_to_eat;
+	int				*dead;
+	pthread_mutex_t	*r_fork;
+	pthread_mutex_t	*l_fork;
+	pthread_mutex_t	*write_lock;
+	pthread_mutex_t	*dead_lock;
+	pthread_mutex_t	*meal_lock;
+}					t_philo;
 
-typedef struct s_data
+typedef struct s_program
 {
-	long			philo_count;
-	long			time_to_die;
-	long			time_to_eat;
-	long			time_to_sleep;
-	long			max_meals;
-	bool			end_sim;
-	pthread_mutex_t	print_lock;
-	pthread_mutex_t	*forks;
+	int				dead_flag;
+	pthread_mutex_t	dead_lock;
 	pthread_mutex_t	meal_lock;
-	struct timeval	start_time;
-	struct s_philo	*philos;
-}				t_data;
-
-int	parse_input(int argc, char *argv[], t_data *data);
+	pthread_mutex_t	write_lock;
+	t_philo			*philos;
+}					t_program;
 
 #endif

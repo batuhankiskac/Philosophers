@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:49:36 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/11 21:14:14 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/14 17:34:33 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,29 @@
 
 int	main(int argc, char *argv[])
 {
-	t_data	*data;
+	t_program	*prog;
 
-	if (argc == 5 || argc == 6)
+	if (argc != 5 && argc != 6)
+		return (ERROR);
+	prog = malloc(sizeof(t_program));
+	if (!prog)
+		return (ERROR);
+	if (parse_input(argc, argv, prog) == ERROR)
 	{
-		if (parse_input(argc, &data, argv) == ERROR)
-			return (ERROR);
-		if (data_init(&data) == ERROR)
-			return (ERROR);
-		if (dinner_start(&data) == ERROR)
-			return (ERROR);
-		if (clean_up(&data) == ERROR)
-			return (ERROR);
-		return (0);
+		free(prog);
+		return (ERROR);
 	}
-	return (ERROR);
+	if (data_init(prog) == ERROR)
+	{
+		clean_up(prog);
+		return (ERROR);
+	}
+	if (dinner_start(prog) == ERROR)
+	{
+		clean_up(prog);
+		return (ERROR);
+	}
+	if (clean_up(prog) == ERROR)
+		return (ERROR);
+	return (0);
 }
