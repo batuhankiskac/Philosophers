@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 22:12:37 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 16:00:16 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:32:34 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	print_status(t_philo *philo, char *status)
 
 static void	*philo_routine(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)arg;
 	while (!(*philo->dead))
@@ -48,7 +48,7 @@ static void	*philo_routine(void *arg)
 	return (NULL);
 }
 
-int	dinner_start(t_program *prog)
+int	start_threads(t_program *prog)
 {
 	int	i;
 
@@ -56,9 +56,16 @@ int	dinner_start(t_program *prog)
 	while (++i < prog->philo_num)
 	{
 		if (pthread_create(&prog->philos[i].thread, NULL,
-			philo_routine, (void *)&prog->philos[i]) != 0)
+				philo_routine, (void *)&prog->philos[i]) != 0)
 			return (ERROR);
 	}
+	return (0);
+}
+
+int	join_threads(t_program *prog)
+{
+	int	i;
+
 	i = -1;
 	while (++i < prog->philo_num)
 	{

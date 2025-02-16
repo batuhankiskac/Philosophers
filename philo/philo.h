@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 16:07:50 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:33:10 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@
 
 typedef struct s_philo
 {
-	pthread_t		thread;
-	int				id;
-	int				eating;
-	int				meals_eaten;
-	int				*dead;
-	size_t			last_meal;
-	size_t			start_time;
-	pthread_mutex_t	*r_fork;
-	pthread_mutex_t	*l_fork;
-	pthread_mutex_t	*write_lock;
-	pthread_mutex_t	*dead_lock;
-	pthread_mutex_t	*meal_lock;
+	pthread_t			thread;
+	int					id;
+	int					eating;
+	int					meals_eaten;
+	int					*dead;
+	size_t				last_meal;
+	size_t				start_time;
+	pthread_mutex_t		*r_fork;
+	pthread_mutex_t		*l_fork;
+	pthread_mutex_t		*write_lock;
+	pthread_mutex_t		*dead_lock;
+	pthread_mutex_t		*meal_lock;
 	struct s_program	*prog;
-}					t_philo;
+}						t_philo;
 
 typedef struct s_program
 {
@@ -57,8 +57,10 @@ typedef struct s_program
 
 int		parse_input(int argc, char *argv[], t_program *prog);
 int		data_init(t_program *prog);
-int		dinner_start(t_program *prog);
+int		start_threads(t_program *prog);
+int		join_threads(t_program *prog);
 int		ft_usleep(size_t milliseconds);
+int		monitor(t_program *prog);
 size_t	get_current_time(void);
 
 #endif
