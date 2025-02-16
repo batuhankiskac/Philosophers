@@ -6,7 +6,7 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 15:49:58 by bkiskac           #+#    #+#              #
-#    Updated: 2025/02/16 16:01:50 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/02/16 18:18:55 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS = main.c \
 	philo_utils.c \
@@ -27,7 +27,8 @@ SRCS = main.c \
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
-	$(NAME): $(OBJS)
+
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
@@ -38,6 +39,6 @@ fclean: clean
 
 re: fclean all
 
-main: all clean
+main : all clean
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re main
