@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/14 22:20:18 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:02:05 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_program
 
 int		parse_input(int argc, char *argv[], t_program *prog);
 int		data_init(t_program *prog);
+int		dinner_start(t_program *prog);
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
 

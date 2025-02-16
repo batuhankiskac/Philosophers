@@ -6,7 +6,7 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 15:49:58 by bkiskac           #+#    #+#              #
-#    Updated: 2025/02/16 15:52:18 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/02/16 16:01:50 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS = main.c \
 	parse_input.c \
 	data_init.c \
 	dinner_start.c \
+	monitor.c \
 	clean_up.c
 
 OBJS = $(SRCS:.c=.o)
