@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:52:13 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 19:53:04 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 20:08:08 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static int	philo_init(t_philo *philo, t_program *prog, int id)
 	return (0);
 }
 
-int data_init(t_program *prog)
+int	data_init(t_program *prog)
 {
-	int i;
+	int	i;
 
 	prog->dead_flag = 0;
 	i = -1;

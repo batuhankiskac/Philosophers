@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:13:15 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 18:35:44 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 20:05:48 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,12 @@ int	ft_usleep(size_t milliseconds, int *dead)
 		usleep(500);
 	}
 	return (0);
+}
+
+void	print_status(t_philo *philo, char *status)
+{
+	pthread_mutex_lock(philo->write_lock);
+	printf("%zu %d %s\n", get_current_time() - philo->start_time,
+		philo->id, status);
+	pthread_mutex_unlock(philo->write_lock);
 }

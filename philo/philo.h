@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 19:52:24 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 20:00:37 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ int		ft_usleep(size_t milliseconds, int *dead);
 int		monitor(t_program *prog);
 int		clean_up(t_program *prog);
 size_t	get_current_time(void);
+void	print_status(t_philo *philo, char *status);
 
 #endif

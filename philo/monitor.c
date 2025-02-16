@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:01:37 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 19:34:07 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 19:59:48 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	check_meals(t_program *prog)
 		{
 			done = 0;
 			pthread_mutex_unlock(&prog->meal_lock);
-			break;
+			break ;
 		}
 		pthread_mutex_unlock(&prog->meal_lock);
 	}
@@ -64,12 +64,12 @@ int	monitor(t_program *prog)
 		if (check_deaths(prog))
 		{
 			prog->dead_flag = 1;
-			break;
+			break ;
 		}
 		if (prog->max_meals != -1 && check_meals(prog))
 		{
 			prog->dead_flag = 1;
-			break;
+			break ;
 		}
 		usleep(1000);
 	}
