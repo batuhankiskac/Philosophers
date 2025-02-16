@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:52:13 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 18:30:13 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 19:53:04 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static int	philo_init(t_philo *philo, t_program *prog, int id)
 	return (0);
 }
 
-int	data_init(t_program *prog)
+int data_init(t_program *prog)
 {
-	int	i;
+	int i;
 
 	prog->dead_flag = 0;
 	i = -1;
@@ -44,8 +44,12 @@ int	data_init(t_program *prog)
 	if (!prog->philos)
 		return (ERROR);
 	while (++i < prog->philo_num)
+	{
 		if (philo_init(&prog->philos[i], prog, i + 1) == ERROR)
 			return (ERROR);
+		prog->philos[i].prog = prog;
+		prog->philos[i].is_even = ((i + 1) % 2 == 0);
+	}
 	i = -1;
 	while (++i < prog->philo_num)
 	{

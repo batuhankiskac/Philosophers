@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 22:12:37 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 18:38:32 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 19:55:08 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ static void	print_status(t_philo *philo, char *status)
 
 static void	*philo_routine(void *arg)
 {
-	t_philo	*philo;
+	t_philo *philo = (t_philo *)arg;
 
-	philo = (t_philo *)arg;
 	if (philo->prog->philo_num == 1)
 	{
 		pthread_mutex_lock(philo->l_fork);
@@ -35,16 +34,26 @@ static void	*philo_routine(void *arg)
 	}
 	while (!(*philo->dead))
 	{
-		pthread_mutex_lock(philo->l_fork);
-		print_status(philo, "has taken a fork");
-		pthread_mutex_lock(philo->r_fork);
-		print_status(philo, "has taken a fork");
+		if (philo->is_even)
+		{
+			pthread_mutex_lock(philo->l_fork);
+			print_status(philo, "has taken a fork");
+			pthread_mutex_lock(philo->r_fork);
+			print_status(philo, "has taken a fork");
+		}
+		else
+		{
+			pthread_mutex_lock(philo->r_fork);
+			print_status(philo, "has taken a fork");
+			pthread_mutex_lock(philo->l_fork);
+			print_status(philo, "has taken a fork");
+		}
 		print_status(philo, "is eating");
 		philo->last_meal = get_current_time();
 		if (ft_usleep(philo->prog->time_to_eat, philo->dead) == ERROR)
 		{
-			pthread_mutex_unlock(philo->r_fork);
 			pthread_mutex_unlock(philo->l_fork);
+			pthread_mutex_unlock(philo->r_fork);
 			break;
 		}
 		philo->meals_eaten++;
@@ -57,7 +66,8 @@ static void	*philo_routine(void *arg)
 		if (ft_usleep(philo->prog->time_to_sleep, philo->dead) == ERROR)
 			break;
 		print_status(philo, "is thinking");
-		ft_usleep(100, philo->dead);
+		if (ft_usleep(100, philo->dead) == ERROR)
+			break;
 	}
 	return (NULL);
 }
