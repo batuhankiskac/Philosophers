@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 18:17:00 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 18:35:54 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		parse_input(int argc, char *argv[], t_program *prog);
 int		data_init(t_program *prog);
 int		start_threads(t_program *prog);
 int		join_threads(t_program *prog);
-int		ft_usleep(size_t milliseconds);
+int		ft_usleep(size_t milliseconds, int *dead);
 int		monitor(t_program *prog);
 int		clean_up(t_program *prog);
 size_t	get_current_time(void);

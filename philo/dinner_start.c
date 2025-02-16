@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 22:12:37 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 18:29:40 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 18:38:32 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ static void	*philo_routine(void *arg)
 	{
 		pthread_mutex_lock(philo->l_fork);
 		print_status(philo, "has taken a fork");
-		ft_usleep(philo->prog->time_to_die);
-		print_status(philo, "died");
 		pthread_mutex_unlock(philo->l_fork);
+		ft_usleep(philo->prog->time_to_die, philo->dead);
 		return (NULL);
 	}
 	while (!(*philo->dead))
@@ -42,17 +41,23 @@ static void	*philo_routine(void *arg)
 		print_status(philo, "has taken a fork");
 		print_status(philo, "is eating");
 		philo->last_meal = get_current_time();
-		ft_usleep(philo->prog->time_to_eat);
+		if (ft_usleep(philo->prog->time_to_eat, philo->dead) == ERROR)
+		{
+			pthread_mutex_unlock(philo->r_fork);
+			pthread_mutex_unlock(philo->l_fork);
+			break;
+		}
 		philo->meals_eaten++;
-		pthread_mutex_unlock(philo->l_fork);
 		pthread_mutex_unlock(philo->r_fork);
-		if (philo->prog->max_meals != -1
-			&& philo->meals_eaten >= philo->prog->max_meals)
-			break ;
+		pthread_mutex_unlock(philo->l_fork);
+		if (philo->prog->max_meals != -1 &&
+			philo->meals_eaten >= philo->prog->max_meals)
+			break;
 		print_status(philo, "is sleeping");
-		ft_usleep(philo->prog->time_to_sleep);
+		if (ft_usleep(philo->prog->time_to_sleep, philo->dead) == ERROR)
+			break;
 		print_status(philo, "is thinking");
-		ft_usleep(100);
+		ft_usleep(100, philo->dead);
 	}
 	return (NULL);
 }
