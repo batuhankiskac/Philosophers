@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:49:36 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 16:30:55 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/16 18:09:38 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int argc, char *argv[])
 	monitor(prog);
 	if (join_threads(prog) == ERROR)
 		return (clean_up(prog), ERROR);
-	if (clean_up(prog) == ERROR)
-		return (ERROR);
+	clean_up(prog);
 	return (0);
 }
