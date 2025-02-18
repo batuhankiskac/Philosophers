@@ -6,7 +6,7 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 15:49:58 by bkiskac           #+#    #+#              #
-#    Updated: 2025/02/18 19:46:10 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/02/18 19:50:34 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,14 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c \
-	philo_utils.c \
 	parse_input.c \
 	data_init.c \
 	dinner_start.c \
 	monitor.c \
-	clean_up.c
+	clean_up.c \
+	philo_utils_1.c \
+	philo_utils_2.c
+
 
 OBJS = $(SRCS:.c=.o)
 

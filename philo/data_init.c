@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:52:13 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/18 19:45:22 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/18 19:50:56 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	mutex_init_and_malloc(t_program *prog)
 	prog->philos = malloc(sizeof(t_philo) * prog->philo_num);
 	if (!prog->philos)
 		return (ERROR);
+	return (0);
 }
 
 static int	philo_init(t_philo *philo, t_program *prog, int id)
