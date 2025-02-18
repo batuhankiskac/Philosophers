@@ -6,11 +6,22 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:52:13 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 20:08:08 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/18 19:45:22 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static int	mutex_init_and_malloc(t_program *prog)
+{
+	if (pthread_mutex_init(&prog->dead_lock, NULL) != 0
+		|| pthread_mutex_init(&prog->meal_lock, NULL) != 0
+		|| pthread_mutex_init(&prog->write_lock, NULL) != 0)
+		return (ERROR);
+	prog->philos = malloc(sizeof(t_philo) * prog->philo_num);
+	if (!prog->philos)
+		return (ERROR);
+}
 
 static int	philo_init(t_philo *philo, t_program *prog, int id)
 {
@@ -36,12 +47,7 @@ int	data_init(t_program *prog)
 
 	prog->dead_flag = 0;
 	i = -1;
-	if (pthread_mutex_init(&prog->dead_lock, NULL) != 0
-		|| pthread_mutex_init(&prog->meal_lock, NULL) != 0
-		|| pthread_mutex_init(&prog->write_lock, NULL) != 0)
-		return (ERROR);
-	prog->philos = malloc(sizeof(t_philo) * prog->philo_num);
-	if (!prog->philos)
+	if (mutex_init_and_malloc(prog) == ERROR)
 		return (ERROR);
 	while (++i < prog->philo_num)
 	{
