@@ -6,7 +6,7 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 15:49:58 by bkiskac           #+#    #+#              #
-#    Updated: 2025/02/16 18:18:55 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/02/18 19:46:10 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c \
 	philo_utils.c \
