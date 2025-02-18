@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:01:37 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 19:59:48 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/18 20:35:21 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	check_meals(t_program *prog)
 	int	i;
 	int	done;
 
-	i = 0;
+	i = -1;
 	done = 1;
 	while (++i < prog->philo_num)
 	{
@@ -71,7 +71,7 @@ int	monitor(t_program *prog)
 			prog->dead_flag = 1;
 			break ;
 		}
-		usleep(1000);
+		usleep(500);
 	}
 	return (0);
 }
