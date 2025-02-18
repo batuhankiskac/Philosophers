@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 20:00:37 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/18 19:38:40 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,10 @@ int		monitor(t_program *prog);
 int		clean_up(t_program *prog);
 size_t	get_current_time(void);
 void	print_status(t_philo *philo, char *status);
+void	single_philo_routine(t_philo *philo);
+int		take_forks(t_philo *philo);
+void	release_forks(t_philo *philo);
+int		eat(t_philo *philo);
+int		sleep_and_think(t_philo *philo);
 
 #endif
