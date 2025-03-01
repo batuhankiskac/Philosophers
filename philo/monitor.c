@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:01:37 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/01 14:14:59 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 14:19:55 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ static int	check_deaths(t_program *prog)
 		if (current_time - prog->philos[i].last_meal > prog->time_to_die)
 		{
 			pthread_mutex_unlock(&prog->meal_lock);
-			pthread_mutex_lock(&prog->write_lock);
-			printf("%zu %d died\n", current_time - prog->philos[i].start_time,
-				prog->philos[i].id);
-			pthread_mutex_unlock(&prog->write_lock);
+			print_status(&prog->philos[i], "died");
 			return (1);
 		}
 		pthread_mutex_unlock(&prog->meal_lock);

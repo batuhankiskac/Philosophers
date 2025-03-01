@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:13:15 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/01 14:16:48 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 14:20:30 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ int	ft_usleep(size_t milliseconds, int *dead)
 void	print_status(t_philo *philo, char *status)
 {
 	pthread_mutex_lock(philo->write_lock);
+	if (*philo->dead)
+	{
+		pthread_mutex_unlock(philo->write_lock);
+		return ;
+	}
 	printf("%zu %d %s\n", get_current_time() - philo->start_time,
 		philo->id, status);
 	pthread_mutex_unlock(philo->write_lock);
