@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/18 19:39:35 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 12:49:20 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_philo
 	int					id;
 	int					eating;
 	int					meals_eaten;
-	int					*dead;
 	int					is_even;
 	size_t				last_meal;
 	size_t				start_time;
@@ -49,7 +48,7 @@ typedef struct s_program
 	size_t			time_to_sleep;
 	int				philo_num;
 	int				max_meals;
-	int				dead_flag;
+	int				end_sim;
 	pthread_mutex_t	dead_lock;
 	pthread_mutex_t	meal_lock;
 	pthread_mutex_t	write_lock;

@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:52:13 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/18 19:50:56 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 12:52:49 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ static int	philo_init(t_philo *philo, t_program *prog, int id)
 	philo->id = id;
 	philo->meals_eaten = 0;
 	philo->start_time = get_current_time();
-	philo->last_meal = philo->start_time;
-	philo->dead = &prog->dead_flag;
+	philo->last_meal = philo->start_time;;
 	philo->write_lock = &prog->write_lock;
 	philo->dead_lock = &prog->dead_lock;
 	philo->meal_lock = &prog->meal_lock;
@@ -46,7 +45,7 @@ int	data_init(t_program *prog)
 {
 	int	i;
 
-	prog->dead_flag = 0;
+	prog->end_sim = 0;
 	i = -1;
 	if (mutex_init_and_malloc(prog) == ERROR)
 		return (ERROR);

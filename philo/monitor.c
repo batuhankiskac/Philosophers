@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:01:37 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/18 20:35:21 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 12:51:44 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,16 @@ static int	check_meals(t_program *prog)
 
 int	monitor(t_program *prog)
 {
-	while (!prog->dead_flag)
+	while (!prog->end_sim)
 	{
 		if (check_deaths(prog))
 		{
-			prog->dead_flag = 1;
+			prog->end_sim = 1;
 			break ;
 		}
 		if (prog->max_meals != -1 && check_meals(prog))
 		{
-			prog->dead_flag = 1;
+			prog->end_sim = 1;
 			break ;
 		}
 		usleep(500);
