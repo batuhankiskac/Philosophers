@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 19:37:48 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/01 12:50:40 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 14:14:42 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	single_philo_routine(t_philo *philo)
 	pthread_mutex_lock(philo->l_fork);
 	print_status(philo, "has taken a fork");
 	pthread_mutex_unlock(philo->l_fork);
-	ft_usleep(philo->prog->time_to_die, philo->prog->end_sim);
+	ft_usleep(philo->prog->time_to_die, philo->dead);
 }
 
 int	take_forks(t_philo *philo)
@@ -49,7 +49,7 @@ int	eat(t_philo *philo)
 {
 	print_status(philo, "is eating");
 	philo->last_meal = get_current_time();
-	if (ft_usleep(philo->prog->time_to_eat, philo->prog->end_sim) == ERROR)
+	if (ft_usleep(philo->prog->time_to_eat, philo->dead) == ERROR)
 		return (ERROR);
 	philo->meals_eaten++;
 	return (0);
@@ -58,10 +58,10 @@ int	eat(t_philo *philo)
 int	sleep_and_think(t_philo *philo)
 {
 	print_status(philo, "is sleeping");
-	if (ft_usleep(philo->prog->time_to_sleep, philo->prog->end_sim) == ERROR)
+	if (ft_usleep(philo->prog->time_to_sleep, philo->dead) == ERROR)
 		return (ERROR);
 	print_status(philo, "is thinking");
-	if (ft_usleep(100, philo->prog->end_sim) == ERROR)
+	if (ft_usleep(100, philo->dead) == ERROR)
 		return (ERROR);
 	return (0);
 }

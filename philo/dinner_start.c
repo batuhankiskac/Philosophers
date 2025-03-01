@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 22:12:37 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/01 12:52:26 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 14:13:59 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	*philo_routine(void *arg)
 		single_philo_routine(philo);
 		return (NULL);
 	}
-	while (!philo->prog->end_sim)
+	while (!(*philo->dead))
 	{
 		if (take_forks(philo) == ERROR)
 			break ;

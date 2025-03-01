@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:13:15 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/01 12:51:12 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 14:16:48 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ size_t	get_current_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-int	ft_usleep(size_t milliseconds, int end_sim)
+int	ft_usleep(size_t milliseconds, int *dead)
 {
 	size_t	start;
 
 	start = get_current_time();
 	while ((get_current_time() - start) < milliseconds)
 	{
-		if (end_sim)
+		if (*dead)
 			return (ERROR);
-		usleep(100);
+		usleep(10);
 	}
 	return (0);
 }

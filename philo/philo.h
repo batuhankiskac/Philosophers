@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/01 12:49:20 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 14:15:54 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_philo
 	int					eating;
 	int					meals_eaten;
 	int					is_even;
+	int					*dead;
 	size_t				last_meal;
 	size_t				start_time;
 	pthread_mutex_t		*r_fork;
