@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:13:15 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/01 14:20:30 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/01 14:23:09 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_usleep(size_t milliseconds, int *dead)
 	{
 		if (*dead)
 			return (ERROR);
-		usleep(10);
+		usleep(100);
 	}
 	return (0);
 }
