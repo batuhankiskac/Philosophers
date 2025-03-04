@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:52:13 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/01 14:15:13 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/04 21:43:10 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static int	philo_init(t_philo *philo, t_program *prog, int id)
 	philo->last_meal = philo->start_time;
 	philo->dead = &prog->end_sim;
 	philo->write_lock = &prog->write_lock;
-	philo->dead_lock = &prog->dead_lock;
 	philo->meal_lock = &prog->meal_lock;
 	philo->r_fork = malloc(sizeof(pthread_mutex_t));
 	if (!philo->r_fork)
