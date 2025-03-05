@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/05 21:52:30 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/05 22:16:32 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_philo
 {
 	pthread_t			thread;
 	int					id;
-	int					eating;
 	int					meals_eaten;
 	int					is_even;
 	int					*dead;
