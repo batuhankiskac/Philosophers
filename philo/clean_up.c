@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 18:09:04 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/16 18:11:54 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/05 21:53:26 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	clean_up(t_program *prog)
 	int	i;
 
 	i = -1;
-	pthread_mutex_destroy(&prog->dead_lock);
 	pthread_mutex_destroy(&prog->meal_lock);
 	pthread_mutex_destroy(&prog->write_lock);
 	while (++i < prog->philo_num)

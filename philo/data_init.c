@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:52:13 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/04 21:43:10 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/05 21:52:59 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 static int	mutex_init_and_malloc(t_program *prog)
 {
-	if (pthread_mutex_init(&prog->dead_lock, NULL) != 0
-		|| pthread_mutex_init(&prog->meal_lock, NULL) != 0
+	if (pthread_mutex_init(&prog->meal_lock, NULL) != 0
 		|| pthread_mutex_init(&prog->write_lock, NULL) != 0)
 		return (ERROR);
 	prog->philos = malloc(sizeof(t_philo) * prog->philo_num);
