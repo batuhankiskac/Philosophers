@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/05 22:16:32 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/06 14:17:04 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 # include <stdio.h>
 # include <stdlib.h>
-# include <stdbool.h>
-# include <string.h>
-# include <unistd.h>
 # include <pthread.h>
+# include <unistd.h>
 # include <sys/time.h>
 # include <limits.h>
 

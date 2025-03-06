@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 19:37:48 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/01 14:14:42 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/06 14:17:34 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	sleep_and_think(t_philo *philo)
 	if (ft_usleep(philo->prog->time_to_sleep, philo->dead) == ERROR)
 		return (ERROR);
 	print_status(philo, "is thinking");
-	if (ft_usleep(100, philo->dead) == ERROR)
+	if (ft_usleep(10, philo->dead) == ERROR)
 		return (ERROR);
 	return (0);
 }
