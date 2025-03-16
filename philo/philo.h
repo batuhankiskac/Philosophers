@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:57:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/03/08 11:59:34 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/16 10:14:56 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <pthread.h>
 # include <unistd.h>
 # include <sys/time.h>
-# include <limits.h>
 
 # define ERROR -1
 

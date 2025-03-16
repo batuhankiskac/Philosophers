@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 19:27:42 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/14 21:40:44 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/03/16 10:13:08 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static long	check_range(const char *str)
 	long	num;
 
 	num = ft_atol(str);
-	if (num < 1 || num > INT_MAX)
+	if (num < 1 || num > 2147483647)
 		return (ERROR);
 	return (num);
 }
